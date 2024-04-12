@@ -1,0 +1,106 @@
+.navbar-component {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.upperPart {
+    height: 100px;
+    width: 100%;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.lowerPart {
+    height: 50px;
+    border-top: 1px solid grey;
+    border-width: 80%;
+    background-color: #FF0000;
+}
+.nav-upper-left {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    gap: 6%;
+}
+.nav-upper-right {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+/* logo  */
+.nav-logo a {
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FF0000;
+}
+
+/* ===== form search bar =====*/
+.form-nav-search-page {
+    display: flex;
+    flex-direction: row;
+    height: 47px;
+}
+
+.input-search-nav-pages {
+    position: relative;
+    height: 100%;
+    width: 250px;
+    border: none;
+}
+.input-search-nav-pages input {
+    height: 100%;
+    width: 100%;
+    border: 1px solid gray;
+    border-right: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.input-search-nav-pages label {
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    color: white;
+    pointer-events: none;
+} 
+
+.input-search-nav-pages input:valid + label,
+.input-search-nav-pages input:focus + label{
+    color: transparent;
+}
+
+.form-nav-search-page button {
+    height: 100%;
+    width: 50px;
+    text-transform: uppercase;
+    background-color: #FF0000;
+    color: white;
+    border: 1px solid grey;
+    border-left: none;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+/* ======= login / register ======= */
+
+.nav-login {
+    height: 100%;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-login a {
+    text-transform: uppercase;
+    color: #FF0000;
+}
