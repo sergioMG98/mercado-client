@@ -62,7 +62,7 @@
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
     background-color: transparent;
-    color: white;
+    color: black;
     outline: none;
     box-sizing: border-box;
     padding: 10px;
@@ -71,7 +71,7 @@
     position: absolute;
     top: 14px;
     left: 10px;
-    color: white;
+    color: #FF0000;
     pointer-events: none;
 } 
 
