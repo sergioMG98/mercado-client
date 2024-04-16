@@ -1,0 +1,194 @@
+.sectionLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background: hsla(217, 100%, 50%, 1);
+
+    background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    
+    background: -moz-linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    
+    background: -webkit-linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061FF", endColorstr="#60EFFF", GradientType=1 );
+}
+
+.formLogin.active,
+.formRegister.active {
+    position: relative;
+    display: flex;
+    height: 80%;
+    width: 50%;
+    border-radius: 16px;
+    backdrop-filter: blur(30px);
+    background-color: #00000080;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.formLogin {
+    display: none;
+}
+
+.formLogin.active form,
+.formRegister.active form {
+    height: 85%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.formLogin.active h1,
+.formRegister.active h1 {
+    height: 8%;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    box-sizing: border-box;
+    padding: 2%;
+}
+
+/* =========== form login ============= */
+
+.loginPageInput {
+    height: 40px;
+    width: 80%;
+    position: relative;
+}
+.loginPageInput input {
+    height: 100%;
+    width: 100%;
+    color: transparent;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: transparent;
+    border-radius: 16px;
+    border: 2px solid white;
+}
+.loginPageInput label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 96%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: white;
+}
+
+/*  */
+.loginPageInput input:focus,
+.loginPageInput input:valid {
+    outline: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid greenyellow;
+    transition: .3s;
+    color: white;
+}
+
+.loginPageInput input:focus {
+    border-bottom: 2px solid hsla(186, 100%, 69%, 1);
+}
+
+.loginPageInput input:focus + label,
+.loginPageInput input:valid + label {
+    color: greenyellow;
+    top: -9px;
+    left: 10px;
+    width: auto;
+}
+
+.loginPageInput input:focus + label {
+    color: hsla(186, 100%, 69%, 1);
+}
+
+.loginPageInput input::placeholder {
+    color: transparent;
+}
+
+.loginPageInput input:focus::placeholder,
+.loginPageInput input:valid::placeholder {
+    color: white;
+}
+
+
+/*  */
+.formLogin form button,
+.formRegister.active form button {
+    height: 40px;
+    width: 30%;
+    border-radius: 16px;
+    text-transform: uppercase;
+    border: 2px solid white;
+    font-size: large;
+}
+/* ==================== */
+.formLogin p,
+.formRegister.active p {
+    box-sizing: border-box;
+    padding: 1%;
+    height: 7%;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+}
+/* =============== button password condition ============== */
+
+.conditions-password-login {
+    position: absolute;
+    top: 59%;
+    left: 10%;
+    border-radius: 13px;
+    height: 30px;
+    width: 140px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+.conditions-password-register{
+    position: absolute;
+    top: 69%;
+    left: 10%;
+    border-radius: 13px;
+    height: 30px;
+    width: 140px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+.password-conditions-container-login,
+.password-conditions-container-register{
+    display: none;
+}
+.password-conditions-container-login.active,
+.password-conditions-container-register.active {
+    display: flex;
+    position: absolute;
+    background-color: white;
+    top: 75%;
+    left: 10%;
+    box-sizing: border-box;
+    padding: 13px 28px;
+    width: 80%;
+    height: 100px;
+}
+.password-conditions-container-login.active {
+    top: 65%;
+}
+/* ======================================= */
+
+.formRegister {
+    display: none;
+}
+
+.formRegister.active {
+    display: flex;
+}
