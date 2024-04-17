@@ -12,10 +12,13 @@ import Categories from './web_pages/unprotected/categories/Categories';
 
 // ================== page protected ===========================
 import HomeAdmin from './web_pages/protected/admin/homeAdmin/HomeAdmin';
+import CategoriesAdmin from './web_pages/protected/admin/categoriesAdmin/CategoriesAdmin';
+
 import HomeCustomer from './web_pages/protected/customer/homeCustomer/HomeCustomer';
 
 // ================== page error ===============================
 import ErrorPage from './error/error_pages/ErrorPage';
+
 
 function App() {
 
@@ -46,6 +49,12 @@ function App() {
       path: "/homeadmin",
       element: <HomeAdmin />
     },
+    {
+      // protected
+      path: "/categoriesAdmin",
+      element: <CategoriesAdmin/>
+    },
+    
     {
       // protected
       path: "/homecustomer",

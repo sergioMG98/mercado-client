@@ -1,0 +1,87 @@
+.navbarAccount-component {
+    height: 100%;
+    width: 100%;
+}
+
+.upperPartProtected {
+    height: 100px;
+    width: 100%;
+    background-color: royalblue;
+}
+.lowerPartProtected {
+    height: 50px;
+    width: 100%;
+    background-color: white;
+}
+
+/* ========= lower part =========== */
+
+.lowerPartProtected-nav {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.navProtected-lower-left {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 50%;
+    top: 0;
+    left: 0;
+}
+.navProtected-lower-left a {
+    height: 100%;
+    width: 120px;
+    text-align: center;
+    align-content: center;
+    text-transform: uppercase;
+}
+.navProtected-lower-left a:hover,
+.navProtected-lower-right button:hover,
+.navProtected-settings ul li:hover {
+    background-color: royalblue;
+    color: white;
+}
+.navProtected-lower-right {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.navProtected-lower-right button {
+    height: 100%;
+    width: 150px;
+    border: none;
+    text-transform: uppercase;
+}
+/* ========== setting ============ */
+.navProtected-settings{
+    display: none;
+}
+
+.navProtected-settings.active {
+    display: flex;
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    height: 150px;
+    width: 150px;
+}
+.navProtected-settings ul {
+    height: 100%;
+    width: 100%;
+}
+.navProtected-settings ul li {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    align-content: center;
+    text-transform: uppercase;
+    list-style: none;
+}
