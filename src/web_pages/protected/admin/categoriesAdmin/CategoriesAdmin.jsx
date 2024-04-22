@@ -49,8 +49,9 @@ export default function CategoriesAdmin() {
                 newCategoryForm(),
                 // rest l'input
                 form.reset()
-
+                
                 setCount(count == 3 ? 0 : count + 1);
+                
             }
             
 
@@ -62,11 +63,25 @@ export default function CategoriesAdmin() {
 
     // recupere les categories
     const getCategories = async() => {
+        
         try {
             const response = await fetch(`http://127.0.0.1:8000/api/getCategories`);
             const data = await response.json();
+            
+            let categories = data.categories;
 
-            setCategories(data.categories)
+            // met dans l'ordre alphabetique
+            categories.sort(function(a, b){
+                if (a[0] < b[0]) {
+                    return -1;
+                }
+                if (a[0] > b[0]) {
+                    return 1;
+                }
+                return 0
+            })
+
+            setCategories(categories)
            
         } catch (error) {
             alert(`problem when retrieving categories`);
@@ -102,7 +117,6 @@ export default function CategoriesAdmin() {
     useEffect(() => {
         getCategories();
     }, [count])
-
     return (
         <div className="admin-categories">
             <header>
@@ -117,7 +131,7 @@ export default function CategoriesAdmin() {
                     <button type="button" className="addCategory" onClick={newCategoryForm} >add category</button>
                     <form onSubmit={addCategory} method="post" className="addCategory-form">
                         <div className="newCategory-container">
-                            <input type="text" name="newCategory" id="newCategory" />
+                            <input type="text" name="newCategory" id="newCategory" required/>
                             <label htmlFor="newCategory"> new category</label>
                         </div>
 
@@ -135,7 +149,7 @@ export default function CategoriesAdmin() {
                     <div className="categories-container-admin">
                         <ul>
                             {categories?.map(element => {
-                                console.log("ele", element[0]);
+                                /* console.log("ele", element[0]); */
                                 return(
                                     <li>
                                         <div className="categories-element-admin-category">{element[0]}</div>
