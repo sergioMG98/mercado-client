@@ -17,10 +17,11 @@ text-transform: uppercase;
 align-content: center;
 text-align: center;
 height: 100%;
-width: 200px;
+min-width: 200px;
 color: royalblue;
 }
-.header-section .addCategory {
+.header-section .addCategory,
+.header-section .addProduct {
 position: absolute;
 right: 10px;
 top: 5px;
@@ -32,6 +33,7 @@ color: white;
 border: 1px solid white;
 border-radius: 16px;
 }
+
 /* ======= new category ======== */
 .addCategory-form {
 display: none;
@@ -57,11 +59,13 @@ border-radius: 16px;
 border: 2px solid royalblue;
 }
 
+.newProductName-container,
 .newCategory-container {
 position: relative;
 height: 40px;
 width: 80%;
 }
+.newProductName-container input,
 .newCategory-container input {
 height: 100%;
 width: 100%;
@@ -71,6 +75,7 @@ border: 1px solid royalblue;
 outline: none;
 border-radius: 16px;
 }
+.newProductName-container label,
 .newCategory-container label {
 position: absolute;
 top: -10px;
@@ -124,11 +129,12 @@ align-content: center;
 }
 /* ============================ */
 .categories-container-admin {
-    height: 100%;
+    height: calc(100% - 40px);
     width: 100%;
+    overflow-y: auto;
 }
 
-.ccategories-container-admin ul {
+.categories-container-admin ul {
     height: 100%;
     width: 100%;
 }

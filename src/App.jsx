@@ -18,6 +18,7 @@ import HomeCustomer from './web_pages/protected/customer/homeCustomer/HomeCustom
 
 // ================== page error ===============================
 import ErrorPage from './error/error_pages/ErrorPage';
+import ProductAdmin from './web_pages/protected/admin/productAdmin/ProductAdmin';
 
 
 function App() {
@@ -54,7 +55,11 @@ function App() {
       path: "/categoriesAdmin",
       element: <CategoriesAdmin/>
     },
-    
+    {
+      // protected
+      path: "/productAdmin",
+      element: <ProductAdmin/>
+    },
     {
       // protected
       path: "/homecustomer",

@@ -27,7 +27,7 @@ export default function NavbarAccount() {
                 <nav className="lowerPartProtected-nav">
                     <div className="navProtected-lower-left">
                         <Link to={"/categoriesAdmin"} >categories</Link>
-                        <Link>produits</Link>
+                        <Link to={"/productAdmin"} >produits</Link>
                         <Link>customers</Link>
                     </div>
 
