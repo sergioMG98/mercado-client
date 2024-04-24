@@ -23,6 +23,10 @@ import ProductAdmin from './web_pages/protected/admin/productAdmin/ProductAdmin'
 
 function App() {
 
+  localStorage.setItem('valueListe', JSON.stringify({value:  0}));
+  localStorage.setItem('shoppingListe', JSON.stringify([]));
+  
+
   const router = createBrowserRouter([
     {
       // no protected
