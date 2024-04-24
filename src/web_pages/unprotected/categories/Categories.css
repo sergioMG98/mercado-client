@@ -1,0 +1,72 @@
+.section-categoriesPage {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+/* ==== filtre container ======= */
+.filter-container-categoriesPage {
+    width: 22%;
+    background-color: palegreen;
+}
+/* =====  ========== */
+.products-container-categoriesPage {
+    width: 78%;
+    min-height: calc(100% - 150px);
+    display: flex;
+    flex-wrap: wrap;
+}
+.product-categoryPage {
+    position: relative;
+    height: 340px;
+    width: 25%;
+    background-color: white;
+}
+/* -------- img --------- */
+.image-container-categoriesPage {
+    width: 100%;
+    height: 40%;
+    background-color: dodgerblue;
+}
+/* --------- info --------- */
+.body-product-categoriesPage {
+    height: 60%;
+    width: 100%;
+  
+}
+.product-details-categoriesPage {
+    height: 75%;
+    width: 100%;
+}
+.product-details-categoriesPage div {
+    height: 25%;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 40px;
+    align-content: center;
+}
+
+.product-btn-categoriesPage {
+    height: 25%;
+    width: 100%;
+    align-content: center;
+    text-align: center;
+}
+.product-btn-categoriesPage button{
+    height: 80%;
+    width: 80%;
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 16px;
+    border: 1px solid white;
+    text-transform: uppercase;
+    z-index: 9;
+}
+/* ----------- span ---------- */
+.product-categoryPage span {
+    position: absolute;
+    top: 10%;
+    height: 80%;
+    width: 2px;
+    background-color: grey;
+
+}

@@ -55,7 +55,7 @@
 }
 .navProtected-lower-right button {
     height: 100%;
-    width: 150px;
+    width: 160px;
     border: none;
     text-transform: uppercase;
 }
@@ -70,7 +70,7 @@
     position: absolute;
     top: 50px;
     right: 0;
-    height: 150px;
+    height: 160px;
     width: 150px;
 }
 .navProtected-settings ul {
