@@ -52,7 +52,6 @@ export default function Home() {
                     <ul>
                         {
                             categories?.map((element, index) => {
-                                console.log("home", element);
                                 return (
                                     <li key={index}><Link to={"/categories"} state={element}>{element}</Link></li>
                                 )

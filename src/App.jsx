@@ -13,12 +13,15 @@ import Categories from './web_pages/unprotected/categories/Categories';
 // ================== page protected ===========================
 import HomeAdmin from './web_pages/protected/admin/homeAdmin/HomeAdmin';
 import CategoriesAdmin from './web_pages/protected/admin/categoriesAdmin/CategoriesAdmin';
-
 import HomeCustomer from './web_pages/protected/customer/homeCustomer/HomeCustomer';
-
+import ProfileCustomer from './web_pages/protected/customer/profileCustomer/ProfileCustomer';
+import ProductAdmin from './web_pages/protected/admin/productAdmin/ProductAdmin';
+import ProductCustormer from './web_pages/protected/customer/productCustomer/ProductCustomer';
+import CardCreditCustomer from './web_pages/protected/customer/cardCreditCustomer/CardCreditCustomer';
 // ================== page error ===============================
 import ErrorPage from './error/error_pages/ErrorPage';
-import ProductAdmin from './web_pages/protected/admin/productAdmin/ProductAdmin';
+
+
 
 
 function App() {
@@ -68,6 +71,20 @@ function App() {
       // protected
       path: "/homecustomer",
       element: <HomeCustomer />
+    },
+    {
+      //protected
+      path: "/productCustomer",
+      element: <ProductCustormer/>
+    },
+    {
+      //protected
+      path: "/cardCustomer",
+      element: <CardCreditCustomer/>
+    },
+    {
+      path: "/profilCustomer",
+      element: <ProfileCustomer/>
     }
   ])
 

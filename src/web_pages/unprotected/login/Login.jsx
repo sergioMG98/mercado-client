@@ -38,7 +38,7 @@ export default function Login(params) {
     }
 
     // alterne les formulaires
-    const changeForm = async(buttonValue) => {
+    const changeForm = (buttonValue) => {
         const loginForm = document.querySelector('.formLogin');
         const registerForm = document.querySelector('.formRegister');
 
@@ -153,7 +153,9 @@ export default function Login(params) {
                     alert(data.message);
 
                     if (data.status == true) {
-                        localStorage.setItem("TokenUserMercado",data.token);
+                        localStorage.setItem('TokenUserMercado', data.token);
+
+                        navigate(data.link)                        
                     }
 
                     form.reset();

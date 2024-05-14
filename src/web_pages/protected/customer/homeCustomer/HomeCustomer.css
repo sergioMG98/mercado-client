@@ -1,0 +1,23 @@
+.home-customerPage {
+    height: 2000px;
+    width: 100vw;
+}
+
+.header-navbarContainer-homeCustomer {
+    height: 50px;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: dodgerblue;
+}
+.header-navbarContainer-homeCustomer nav {
+    height: 100%;
+    width: 100%;
+}
+
+.section-contentContainer-homeCustomer {
+    width: 100vw;
+    background-color: teal;
+}
+/* ------------- section --------------- */

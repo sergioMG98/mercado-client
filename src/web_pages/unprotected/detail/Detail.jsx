@@ -31,15 +31,20 @@ export default function Detail(params) {
 
     }
 
+    // change la valeur de productSelected via le composant navbar
+    function handleState (newValue) {
+        setProductSelected(newValue);
+    }
 
     useEffect(() => {
         getDetailProduct();
     }, [])
+    
     return(
         <div className="detail-page page-unprotected">
             <header>
                 <nav className="navbar-container">
-                    <Navbar chosenProduct={productSelected}/>
+                    <Navbar chosenProduct={productSelected} change={handleState}/>
                 </nav>
             </header>
 

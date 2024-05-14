@@ -2,18 +2,22 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-export default function Navbar({chosenProduct}) {
+export default function Navbar({chosenProduct, change}) {
 
     const navigate = useNavigate();
 
+    // categories du back-end
     const [categories, setCategories] = useState();
-
+    
+    // etats du des boutons
     const [categoryState, setCategoryState] = useState(false);
     const [listeState, setListeState] = useState(false);
 
+    // liste des produits selectionné
     const [listeProduct, setListeProduct] = useState(
         JSON.parse(localStorage.getItem('shoppingListe'))
     );
+    // valeur de la liste selectionné
     const [listeValue , setListeValue] = useState(
         JSON.parse(localStorage.getItem('valueListe'))
     );
@@ -62,7 +66,7 @@ export default function Navbar({chosenProduct}) {
 
     // calcule la valeur de la liste
     const calculListeValue = () => {
-      
+        
         let valueTemp = 0;
 
         for (let index = 0; index < listeProduct.length; index++) {
@@ -75,47 +79,11 @@ export default function Navbar({chosenProduct}) {
         listeValue.value = valueTemp;
         localStorage.setItem('shoppingListe', JSON.stringify(listeProduct));
         localStorage.setItem('valueListe', JSON.stringify({value: valueTemp}));
-    }
-
-    // liste de course
-    if (listeProduct.length == 0 && chosenProduct != undefined) {
         
-        let object = {
-            id: chosenProduct.id,
-            name: chosenProduct.name,
-            price: chosenProduct.price,
-            brands: chosenProduct.brands,
-            quantity: chosenProduct.quantity,
-            promo_price: chosenProduct.promo_price,
-            quantityProductChose: 1,
-            valueProductChose: chosenProduct.promo_price != null ? chosenProduct.promo_price : chosenProduct.price
-        }
-
-        listeProduct.push(object);
-        calculListeValue();
-    } else {
-        
-        if (listeProduct.length != 0 && chosenProduct != undefined) {
-            if (listeProduct.some(element => element.id == chosenProduct.id) != true) {
-                
-                let object = {
-                    id: chosenProduct.id,
-                    name: chosenProduct.name,
-                    price: chosenProduct.price,
-                    brands: chosenProduct.brands,
-                    quantity: chosenProduct.quantity,
-                    promo_price: chosenProduct.promo_price,
-                    quantityProductChose: 1,
-                    valueProductChose: chosenProduct.promo_price != null ? chosenProduct.promo_price : chosenProduct.price
-                }
-                
-                listeProduct.push(object);
-
-                calculListeValue();
-            }
-
-        }
+        // met chosenProduct a undefined
+        change(undefined)
     }
+    
 
     // ouvre / ferme liste
     const liste = () => {
@@ -137,6 +105,7 @@ export default function Navbar({chosenProduct}) {
         for (let index = 0; index < listeProduct.length; index++) {
             
             if (listeProduct[index].id == element.id) {
+                // augment soit diminue quantite du produit choisi
                 if (operateur == "+") {
                     listeProduct[index].quantityProductChose += 1
                 } else {
@@ -144,13 +113,20 @@ export default function Navbar({chosenProduct}) {
 
                 }
 
+                // calcule la valeur du produit choisi en rapport avec la quantité
                 if (listeProduct[index].promo_price == null) {
                     listeProduct[index].valueProductChose = listeProduct[index].quantityProductChose * listeProduct[index].price
                 } else {
                     listeProduct[index].valueProductChose = listeProduct[index].quantityProductChose * listeProduct[index].promo_price
                 }
 
+                // supprime les produit dont la quantite == 0
+                if (listeProduct[index].quantityProductChose == 0) {
+                    
+                    let newListe = listeProduct.filter((element, i) => listeProduct[index] != element)
+                    setListeProduct(newListe);
 
+                }
             }
         }
         calculListeValue();
@@ -168,10 +144,49 @@ export default function Navbar({chosenProduct}) {
         navigate('/categories', { state: {search} })
     }
 
+    // liste de course
+    if (listeProduct.length == 0 && chosenProduct != undefined) {
+        
+        let object = {
+            id: chosenProduct.id,
+            name: chosenProduct.name,
+            price: chosenProduct.price,
+            brands: chosenProduct.brands,
+            quantity: chosenProduct.quantity,
+            promo_price: chosenProduct.promo_price,
+            quantityProductChose: 1,
+            valueProductChose: chosenProduct.promo_price != null ? chosenProduct.promo_price : chosenProduct.price
+        }
+
+        listeProduct.push(object);
+        calculListeValue();
+    } else {
+    
+        if (listeProduct.length != 0 && chosenProduct != undefined) {
+            if (listeProduct.some(element => element.id == chosenProduct.id) != true) {
+                
+                let object = {
+                    id: chosenProduct.id,
+                    name: chosenProduct.name,
+                    price: chosenProduct.price,
+                    brands: chosenProduct.brands,
+                    quantity: chosenProduct.quantity,
+                    promo_price: chosenProduct.promo_price,
+                    quantityProductChose: 1,
+                    valueProductChose: chosenProduct.promo_price != null ? chosenProduct.promo_price : chosenProduct.price
+                }
+
+                listeProduct.push(object);
+
+                calculListeValue();
+            }
+
+        }
+    }
+
     useEffect(() => {
         getCategories();
     }, [])
-
 
     return (
         <div className="navbar-component">

@@ -1,0 +1,79 @@
+.navbarCustomer-component {
+    height: 100%;
+    width: 100%;
+}
+.navbarCustomer-component nav {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.navbarCustomer-productsContainer {
+    height: 100%;
+    width: 150px;
+    background-color: crimson;
+}
+.navbarCustomer-productsContainer a {
+    display: flex;
+    height: 100%;
+    width: 150px;
+    background-color: antiquewhite;
+    box-sizing: border-box;
+    border: 1px solid grey;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbarCustomer-settingsContainer-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 200px;
+    background-color: cadetblue;
+}
+.navbarCustomer-settingsContainer-btn button {
+    height: 100%;
+    width: 100%;
+    text-transform: uppercase;
+
+}
+.navbarCustomer-settingsContainer {
+    display: none;
+}
+
+.navbarCustomer-settingsContainer.active {
+    display: flex;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    height: fit-content;
+    width: 200px;
+    background-color: white;
+}
+.navbarCustomer-settingsContainer ul{
+    height: 100%;
+    width: 100%;
+}
+.navbarCustomer-settingsContainer ul li {
+    height: 50px;
+    width: 200px;
+    list-style: none;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    padding-left: 20px;
+    align-content: center;
+}
+.navbarCustomer-settingsContainer ul li:hover {
+    background-color: dodgerblue;
+    color: white;
+}
+.navbarCustomer-settingsContainer ul li:nth-last-child(1){
+    color: crimson;
+}
+.navbarCustomer-settingsContainer ul li:nth-last-child(1):hover {
+    background-color: crimson;
+    color: white;
+}
