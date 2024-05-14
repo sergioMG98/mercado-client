@@ -3,6 +3,7 @@ import Navbar from "../../../components/navbar/Navbar"
 import "./Categories.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Filter from "../../../components/filter/Filter";
 
 export default function Categories(params) {
 
@@ -11,14 +12,13 @@ export default function Categories(params) {
     
     // produits du back-end
     const [products, setProducts] = useState();
-
+    const [filteredProduct, setFilteredProduct] = useState([]);
     // produit choisi
     const [productSelected, setProductSelected] = useState();
 
 
     // recupere les produits
     const getProducts = async() => {
-        console.log('get product');
         let options = {
             method: "POST",
             headers: {
@@ -33,8 +33,7 @@ export default function Categories(params) {
         const data = await response.json();
 
         setProducts(data.products);
-        console.log("cat", data);
-
+        /* console.log("product", data); */
         if (data.status == false) {
             alert(data.message);
         }
@@ -58,69 +57,117 @@ export default function Categories(params) {
         setProducts(data.products);
 
     }
-    let test = location.state;
-    console.log('d',typeof(test) );
     useEffect(() => {
         
         if (typeof(location.state) != "object" || location.state['search'] == undefined) {
-            console.log("useEffect");
             getProducts();
         } else {
             getProductsBySearch();
         }
     }, [location.state])
 
+    // change la valeur de productSelected via le composant navbar
+    function handleState (newValue) {
+        setProductSelected(newValue);
+    }
+
+    const productFiltered = (arrayFiltered) => {
+        console.log('array filtered', arrayFiltered);
+        setFilteredProduct([])
+        setFilteredProduct(arrayFiltered);
+    }
+    
     return (
         <div className="categorie-page page-unprotected">
             <header>
                 <nav className="navbar-container">
-                    <Navbar chosenProduct={productSelected}/>
+                    <Navbar chosenProduct={productSelected} change={handleState}/>
                 </nav>
             </header>
 
             <section className="section-categoriesPage">
                 <div className="filter-container-categoriesPage">
-
+                    <Filter products={products} afterFilter={productFiltered}/>
                 </div>
 
                 <div className="products-container-categoriesPage">
+                    
                     {
-                        products?.map((element, index) => {
+                        filteredProduct?.length == 0 ?
                         
-                            return (
-                                <div className="product-categoryPage" key={index}>
-                                    <div className="image-container-categoriesPage" onClick={() => navigate("/detail", { state: {key: element.id }})}>
+                            products?.map((element, index) => {
+                            
+                                return (
+                                    <div className="product-categoryPage" key={index}>
+                                        <div className="image-container-categoriesPage" onClick={() => navigate("/detail", { state: {key: element.id }})}>
 
-                                    </div>
-                                    <div className="body-product-categoriesPage">
-                                        <div className="product-details-categoriesPage" onClick={() => navigate("/detail", { state: {key: element.id }})}>
-                                            <div className="product-name-categoriesPage">
-                                                {element.name}
+                                        </div>
+                                        <div className="body-product-categoriesPage">
+                                            <div className="product-details-categoriesPage" onClick={() => navigate("/detail", { state: {key: element.id }})}>
+                                                <div className="product-name-categoriesPage">
+                                                    {element.name}
+                                                </div>
+
+                                                <div className="product-brands-categoriesPage">
+                                                    {element.brands}
+                                                </div>
+
+                                                <div className="product-price-categoriesPage">
+                                                    {element.price} €
+                                                </div>
+
+                                                <div className="product-pricePromo-categoriesPage">
+                                                    {element.promo_price != null ? "promo: " + element.promo_price + " €" : null} 
+                                                </div>
                                             </div>
 
-                                            <div className="product-brands-categoriesPage">
-                                                {element.brands}
-                                            </div>
-
-                                            <div className="product-price-categoriesPage">
-                                                {element.price} €
-                                            </div>
-
-                                            <div className="product-pricePromo-categoriesPage">
-                                                {element.promo_price != null ? "promo: " + element.promo_price + " €" : null} 
+                                            <div className="product-btn-categoriesPage">
+                                                <button type="button" onClick={() => setProductSelected(element)}>cart</button>
                                             </div>
                                         </div>
-
-                                        <div className="product-btn-categoriesPage">
-                                            <button type="button" onClick={() => setProductSelected(element)}>cart</button>
-                                        </div>
+                                        <span></span>
                                     </div>
-                                    <span></span>
-                                </div>
+                                    
+                                )
+
+                            })
+                            :
+                            filteredProduct?.map((element, index) => {
                                 
-                            )
+                                return (
+                                    <div className="product-categoryPage" key={index}>
+                                        <div className="image-container-categoriesPage" onClick={() => navigate("/detail", { state: {key: element.id }})}>
 
-                        })
+                                        </div>
+                                        <div className="body-product-categoriesPage">
+                                            <div className="product-details-categoriesPage" onClick={() => navigate("/detail", { state: {key: element.id }})}>
+                                                <div className="product-name-categoriesPage">
+                                                    {element.name}
+                                                </div>
+
+                                                <div className="product-brands-categoriesPage">
+                                                    {element.brands}
+                                                </div>
+
+                                                <div className="product-price-categoriesPage">
+                                                    {element.price} €
+                                                </div>
+
+                                                <div className="product-pricePromo-categoriesPage">
+                                                    {element.promo_price != null ? "promo: " + element.promo_price + " €" : null} 
+                                                </div>
+                                            </div>
+
+                                            <div className="product-btn-categoriesPage">
+                                                <button type="button" onClick={() => setProductSelected(element)}>cart</button>
+                                            </div>
+                                        </div>
+                                        <span></span>
+                                    </div>
+                                    
+                                )
+
+                            })
                     }
                 </div>
             </section>

@@ -1,0 +1,182 @@
+.header-navbarContainer-homeCustomer {
+    height: 50px;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: dodgerblue;
+    z-index: 5;
+}
+/* --------- section ---------- */
+.section-contentContainer-homeCustomer {
+    position: relative;
+    width: 100vw;
+    min-height: calc(100vh - 50px);
+    height: fit-content;
+}
+.headSection-homeCustomer {
+    position: sticky;
+    top: 50px;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    background-color: slateblue;
+    z-index: 4;
+}
+
+/* -------- */
+.filterContainer-productContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.filterContainer-productContainer button {
+    height: 80%;
+    width: 100px;
+    border-radius: 10px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    border: 1px solid grey;
+}
+.filter-optionsContainer-productCustomer{
+    display: none;
+}
+.filter-optionsContainer-productCustomer.active {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    height: fit-content;
+    min-height: calc(100vh - 100px);
+    width: 250px;
+    background-color: slategrey;
+}
+/* ----- favorite list ----- */
+.favoriteListContainer-productCustomer {
+    position: absolute;
+    top: 0;
+    right: 150px;
+    height: 100%;
+    width: 150px;
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.favoriteListContainer-productCustomer button {
+    text-align: center;
+    align-content: center;
+}
+.favoriteContainer-productCustomer {
+    display: none;
+}
+.favoriteContainer-productCustomer.active {
+    overflow-y: auto;
+    position: absolute;
+    top: 50px;
+    right: -150px;
+    height: calc(100vh - 100px);
+    width: 500px;
+    background-color: white;
+    border-left: 1px solid black;
+    box-sizing: border-box;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+/* ----- list ------- */
+.ShoppingValueContainer-productCustomer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background-color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logoListContainer-productCustomer {
+    height: 80%;
+    width: 25%;
+    border: 1px solid black;
+    border-right: none;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: cadetblue;
+}
+.value-list-productCustomer {
+    height: 80%;
+    width: 55%;
+    border: 1px solid black;
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    align-content: center;
+}
+/* -- list container -- */
+.shoppingList-productCustomer {
+    display: none;
+}
+.shoppingList-productCustomer.active {
+    position: absolute;
+    display: flex;
+    top: 50px;
+    right: 0;
+    height: calc(100vh - 100px);
+    width: 500px;
+    background-color: white;
+    z-index: 4;
+    box-sizing: border-box;
+    border-left: 1px solid black;
+    justify-content: center;
+    padding: 20px 0;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    gap: 20px;
+}
+/* ----- section body -------- */
+.bodySection-homeCustomer {
+    height: calc(100vh - 100px);
+    width: 100vw;
+    z-index: 2;
+}
+.cardProductContainer-ProductCustomer {
+    height: fit-content;
+    min-height: calc(100% - 50px);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.btn-paginationContainer-ProductCustomer{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    background-color: salmon;
+    display: flex;
+    align-items: center;
+
+}
+.btn-paginationContainer-ProductCustomer button {
+    height: 80%;
+    width: 100px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    border: 1px solid black;
+}
+.previousBtn-productCustomer {
+    position: absolute;
+    left: 40px;
+}
+
+.nextBtn-productCustomer {
+    position: absolute;
+    right: 40px;
+}

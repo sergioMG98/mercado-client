@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 export default function ProductAdmin () {
 
+    let token = JSON.parse(localStorage.getItem('TokenUserMercado'));
+    
     let formStatus = false;
     const [count, setCount] = useState(0);
     const [categories, setCategories] = useState();
