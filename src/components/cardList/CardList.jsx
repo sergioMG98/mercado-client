@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import './CardList.css';
 
 export default function CardList({element, changeQuantityProduct, favori, addElement}) {
+    /* console.log("entre card list"); */
     let token = localStorage.getItem('TokenUserMercado');
     
     const addToList = () => {
@@ -28,12 +29,15 @@ export default function CardList({element, changeQuantityProduct, favori, addEle
         }
         
     }
+    console.log("cardList", element);
     return (
         <div className="cardList">
             <div className="upper-CardList">
-                <div className="img-container-CardList"></div>
+                <div className="img-container-CardList">
+                    <img src={element?.name_picture} alt="product's picture" />
+                </div>
                 <div className="info-container-CardList">
-                    <div className="nameProduct-CardList"> <strong>{element.name}</strong> </div>
+                    <div className="nameProduct-CardList"><strong>{element.name}</strong> </div>
                     <div className="brandProduct-CardList">{element.brands}</div>
                     <div className="priceProduct-CardList">{element.price} €</div>
                     <div className="promo_priceProduct-CardList">{element.promo_price != null ? element.promo_price + " €" : null}</div>

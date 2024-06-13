@@ -13,6 +13,10 @@
     height: 40%;
     background-color: dodgerblue;
 }
+.image-container-card img {
+    height: 100%;
+    width: 100%;
+}
 /* ------------- */
 .body-product-card {
     height: 60%;

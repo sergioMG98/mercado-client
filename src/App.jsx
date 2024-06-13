@@ -21,7 +21,10 @@ import CardCreditCustomer from './web_pages/protected/customer/cardCreditCustome
 // ================== page error ===============================
 import ErrorPage from './error/error_pages/ErrorPage';
 
-
+//================= ===================
+import DetailsProduct from './components/detailsProduct/DetailsProduct';
+import ProfileAdmin from './web_pages/protected/admin/profileAdmin/ProfileAdmin';
+import ResetPassword from './web_pages/unprotected/resetPassword/ResetPassword';
 
 
 function App() {
@@ -69,6 +72,11 @@ function App() {
     },
     {
       // protected
+      path: "/profileAdmin",
+      element: <ProfileAdmin/>
+    },
+    {
+      // protected
       path: "/homecustomer",
       element: <HomeCustomer />
     },
@@ -85,7 +93,18 @@ function App() {
     {
       path: "/profilCustomer",
       element: <ProfileCustomer/>
+    },
+      //component
+    {
+      path: "/detailsProduct",
+      element: <DetailsProduct/>
+    },
+      //reset password
+    {
+      path: "/resetPassword",
+      element: <ResetPassword/>
     }
+
   ])
 
   return (

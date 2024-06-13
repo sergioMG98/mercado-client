@@ -26,8 +26,8 @@ export default function Detail(params) {
 
         const response = await fetch(`http://127.0.0.1:8000/api/specificProduct`, options);
         const data = await response.json();
-
-        setProduct(data.product);
+        
+        setProduct(data.product[0]);
 
     }
 
@@ -39,7 +39,7 @@ export default function Detail(params) {
     useEffect(() => {
         getDetailProduct();
     }, [])
-    
+    console.log("detail", product);
     return(
         <div className="detail-page page-unprotected">
             <header>
@@ -51,7 +51,7 @@ export default function Detail(params) {
             <section>
                 <div className="detailsParent-container-detailPage">
                     <div className="image-container-detailPage">
-                        <img src="/" alt="product image" />
+                        <img src={product?.name_picture} alt="product image" />
                     </div>
 
                     <div className="detail-container-detailPage">

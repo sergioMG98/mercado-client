@@ -33,7 +33,7 @@ export default function Categories(params) {
         const data = await response.json();
 
         setProducts(data.products);
-        /* console.log("product", data); */
+        console.log("product", data);
         if (data.status == false) {
             alert(data.message);
         }
@@ -53,7 +53,7 @@ export default function Categories(params) {
 
         const response = await fetch(`http://127.0.0.1:8000/api/getProductBySearch`, options);
         const data = await response.json();
-
+        console.log("product by id", data);
         setProducts(data.products);
 
     }
@@ -100,7 +100,7 @@ export default function Categories(params) {
                                 return (
                                     <div className="product-categoryPage" key={index}>
                                         <div className="image-container-categoriesPage" onClick={() => navigate("/detail", { state: {key: element.id }})}>
-
+                                            <img src={element.name_picture} alt="picture product" />
                                         </div>
                                         <div className="body-product-categoriesPage">
                                             <div className="product-details-categoriesPage" onClick={() => navigate("/detail", { state: {key: element.id }})}>
@@ -133,11 +133,11 @@ export default function Categories(params) {
                             })
                             :
                             filteredProduct?.map((element, index) => {
-                                
+                                console.log('filteredProduct', element);
                                 return (
                                     <div className="product-categoryPage" key={index}>
                                         <div className="image-container-categoriesPage" onClick={() => navigate("/detail", { state: {key: element.id }})}>
-
+                                            <img src={element.name_picture} alt="picture product" />
                                         </div>
                                         <div className="body-product-categoriesPage">
                                             <div className="product-details-categoriesPage" onClick={() => navigate("/detail", { state: {key: element.id }})}>

@@ -10,11 +10,11 @@ export default function Card({element, cardSelected}) {
     return (
         <div className="card">
                     
-            <div className="image-container-card" onClick={() => navigate("/detail", { state: {key: element.id }})}>
-
+            <div className="image-container-card" onClick={() => navigate("/detailsProduct", { state: {key: element.id }})}>
+                <img src={element.name_picture} alt="picture product" />
             </div>
             <div className="body-product-card">
-                <div className="product-details-card" onClick={() => navigate("/detail", { state: {key: element.id }})}>
+                <div className="product-details-card" onClick={() => navigate("/detailsProduct", { state: {key: element.id }})}>
                     <div className="product-name-card">
                         {element.name}
                     </div>

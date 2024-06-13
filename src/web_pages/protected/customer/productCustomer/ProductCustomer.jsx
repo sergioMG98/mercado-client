@@ -6,7 +6,7 @@ import Card from "../../../../components/card/Card";
 import CardList from "../../../../components/cardList/CardList";
 
 export default function ProductCustormer(){
-
+    console.log("p c");
     let token = localStorage.getItem('TokenUserMercado');
 
     // liste
@@ -101,7 +101,7 @@ export default function ProductCustormer(){
 
     // recuperé les produits
     const getProduct = async(url) => {
-
+        
         const response = await fetch(url == null ?'http://127.0.0.1:8000/api/getProductPagination' : url);
         const data = await response.json();
 
@@ -197,8 +197,10 @@ export default function ProductCustormer(){
                 brands: chosenProduct.brands,
                 quantity: chosenProduct.quantity,
                 promo_price: chosenProduct.promo_price,
+                name_picture: chosenProduct.name_picture,
                 quantityProductChose: 1,
-                valueProductChose: chosenProduct.promo_price != null ? chosenProduct.promo_price : chosenProduct.price
+                valueProductChose: chosenProduct.promo_price != null ? chosenProduct.promo_price : chosenProduct.price,
+                
             }
 
             listeProduct.push(object);
@@ -213,6 +215,7 @@ export default function ProductCustormer(){
                     brands: chosenProduct.brands,
                     quantity: chosenProduct.quantity,
                     promo_price: chosenProduct.promo_price,
+                    name_picture: chosenProduct.name_picture,
                     quantityProductChose: 1,
                     valueProductChose: chosenProduct.promo_price != null ? chosenProduct.promo_price : chosenProduct.price
                 }
@@ -233,7 +236,7 @@ export default function ProductCustormer(){
         getProduct(null);
         getFavoriteProduct();
     }, [])
-
+    
     return(
         <div className="product-customerPage">
             <header className="header-navbarContainer-homeCustomer">
@@ -257,7 +260,7 @@ export default function ProductCustormer(){
                             <div className="favoriteContainer-productCustomer">
                                 {
                                     favoriteProduct?.map((element, index) => {
-                                        console.log('fav',element);
+                                        
                                         return(
                                             
                                             <CardList element={element} changeQuantityProduct={changeQuantityProduct} favori={1} addElement={cardSelected} reloadFav={()=> getFavoriteProduct()} key={index}/>
@@ -270,14 +273,17 @@ export default function ProductCustormer(){
                         </div>
 
                         <div className="ShoppingValueContainer-productCustomer">
-                            <div className="logoListContainer-productCustomer" onClick={listState}>c</div>
+                            <div className="logoListContainer-productCustomer" onClick={listState}>
+                                <img src="/public/panier.png" alt="shopping car" />
+                            </div>
                             
                             <div className="value-list-productCustomer" onClick={listState}>{listeValue.value != 0 ? listeValue.value.toFixed(2) + " €" : null}</div>
                             <div className="shoppingList-productCustomer">
                                 {
                                     listeProduct?.map((element, index) => {
+                                        
                                         return (
-                                            <CardList element={element} changeQuantityProduct={changeQuantityProduct} key={index}/>
+                                            <CardList element={element} changeQuantityProduct={changeQuantityProduct} key={index} />
                                         )
                                     })
                                 }
@@ -286,7 +292,7 @@ export default function ProductCustormer(){
                     </div>
                 </div>
 
-                <div className="bodySection-homeCustomer">
+                <div className="bodySection-homeCustomer-product">
                     <div className="cardProductContainer-ProductCustomer">
                         {
                             filteredProduct?.length == 0 ?

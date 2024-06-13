@@ -11,12 +11,12 @@ export default function HomeCustomer(params) {
             </header>
 
             <section className="section-contentContainer-homeCustomer">
-                <div className="headSection-homeCustomer">
-                
-                </div>
+                {/* <div className="headSection-homeCustomer">
+                    
+                </div> */}
 
                 <div className="bodySection-homeCustomer">
-                    
+                    <p>Hello dear customer</p>
                 </div>
             </section>
         </div>

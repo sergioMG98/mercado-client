@@ -1,8 +1,7 @@
+import NavbarAccount from "../../../../components/navbarAccount/NavbarAccount";
 import { useEffect, useState } from "react"
-import NavbarCustomer from "../../../../components/navbarCustomer/NavBarCustomer";
-import "./ProfileCustomer.css";
 
-export default function ProfileCustomer() {
+export default function ProfileAdmin() {
     let token = localStorage.getItem('TokenUserMercado');
 
     // condition pour le mot de passe
@@ -154,12 +153,12 @@ export default function ProfileCustomer() {
     useEffect(() => {
         getProfileData();
     }, []);
-   
+    
     return (
-        <div className="profilCustomer">
+        <div className="profileAdmin">
             <header className="header-navbarContainer-profileCustomer">
                 <nav>
-                    <NavbarCustomer/>
+                    <NavbarAccount/>
                 </nav>
             </header>
 
@@ -188,6 +187,7 @@ export default function ProfileCustomer() {
                     <button type="submit">validate</button>
                 </form>
             </section>
+
         </div>
     )
 }

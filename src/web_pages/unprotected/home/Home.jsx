@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../../components/navbar/Navbar";
 import { useEffect, useState } from "react";
+import './Home.css';
 
 export default function Home() {
 
@@ -48,17 +49,17 @@ export default function Home() {
             </header>
 
             <section>
-                <div className="home-categories-container">
-                    <ul>
-                        {
-                            categories?.map((element, index) => {
-                                return (
-                                    <li key={index}><Link to={"/categories"} state={element}>{element}</Link></li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
+                
+                <ul className="home-categories-container">
+                    {
+                        categories?.map((element, index) => {
+                            return (
+                                <li key={index}><Link to={"/categories"} state={element}>{element}</Link></li>
+                            )
+                        })
+                    }
+                </ul>
+               
             </section>
 
             <footer></footer>

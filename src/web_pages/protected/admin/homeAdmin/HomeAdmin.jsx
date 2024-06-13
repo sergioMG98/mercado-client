@@ -11,7 +11,7 @@ export default function HomeAdmin(params) {
             </header>
 
             <section>
-
+                <p>welcome dear admin</p>
             </section>
         </div>
     )
