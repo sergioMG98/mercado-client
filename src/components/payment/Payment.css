@@ -3,6 +3,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .payment-title {
@@ -51,6 +52,7 @@
     height: calc(100% - 50px);
     box-sizing: border-box;
     width: 50%;
+    align-content: center;
 }
 
 .field-container label {
@@ -100,6 +102,7 @@
     box-sizing: border-box;
     padding: 20px;
     justify-content: center;
+    position: relative;
 }
 
 #ccsingle {
@@ -327,7 +330,9 @@
 }
 
 .creditcard {
-    width: 100%;
+    position: absolute;
+    top: 31%;
+    width: 88%;
     max-width: 400px;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;

@@ -17,6 +17,7 @@ export default function Filter({products, afterFilter}) {
 
     // filtre les produits
     const filterCategories = (category, brand, price) => {
+        
         setProdutsFilteredArray([])
         setTemporary([]);
 
@@ -46,7 +47,23 @@ export default function Filter({products, afterFilter}) {
             }
         }
 
+        // verifie que le prix est entre valeur a et b
+        function firstPriceFilter (produit, a, b) {
+            
+            if (produit.promo_price == null ) {
+                if (parseFloat(produit.price) > a && parseFloat(produit.price) < b) {
+                    productsFilteredArray.push(produit)
+                }
+            } else {
+                if (parseFloat(produit.promo_price) > a && parseFloat(produit.promo_price) < b) {
+                    productsFilteredArray.push(produit)
+                }
+            }
+        }
+
+        // verifie que le prix est entre valeur a et b
         function priceFilter (produit, a, b) {
+           
             if (produit.promo_price == null ) {
                 if (parseFloat(produit.price) > a && parseFloat(produit.price) < b) {
                     temporary.push(produit)
@@ -58,6 +75,7 @@ export default function Filter({products, afterFilter}) {
             }
         }
 
+        // premier filtre
         for (let index = 0; index < products.length; index++) {
             if (brandChose.length != 0) {
                 if (brandChose?.indexOf(products[index].brands) != -1) {
@@ -74,19 +92,19 @@ export default function Filter({products, afterFilter}) {
             if (priceChose.length != 0) {
                 switch (priceChose[0]) {
                     case "lvl_1":
-                            priceFilter(products[index], 0, 1.99);
+                        firstPriceFilter(products[index], 0, 1.99);
                         break;
                     
                     case "lvl_2":
-                            priceFilter(products[index], 2, 3.99);
+                        firstPriceFilter(products[index], 2, 3.99);
                         break;
     
                     case "lvl_3":
-                            priceFilter(products[index], 4, 5.99);
+                        firstPriceFilter(products[index], 4, 5.99);
                         break;
     
                     case "lvl_4":
-                            priceFilter(products[index], 6, 9.99);
+                        firstPriceFilter(products[index], 6, 9.99);
                         break;
     
                     case "lvl_5":
@@ -107,7 +125,7 @@ export default function Filter({products, afterFilter}) {
                 continue;
             }
         }
-            
+        
         for (let index = 0; index < productsFilteredArray.length; index++) {
             
             if (brandChose.length != 0) {
@@ -115,7 +133,7 @@ export default function Filter({products, afterFilter}) {
                 if (brandChose?.indexOf(productsFilteredArray[index].brands) != -1) {
                     if (categoryChose.length != 0) {
                         // cherche categories
-                        if (categoryChose?.some(cat => products[index].categories?.includes(cat)) == true) {
+                        if (categoryChose?.some(cat => productsFilteredArray[index].categories?.includes(cat)) == true) {
                             if (priceChose.length != 0) {
                                 // cherche par rapport au prix
                                 switch (priceChose[0]) {
@@ -197,10 +215,14 @@ export default function Filter({products, afterFilter}) {
                 }
             
             } else {
+                
                 if (categoryChose.length != 0) {
+                   
                     // cherche categories
-                    if (categoryChose?.some(cat => products[index].categories?.includes(cat)) == true) {
+                    if (categoryChose?.some(cat => productsFilteredArray[index].categories?.includes(cat)) == true) {
+                        
                         if (priceChose.length != 0) {
+                            
                             // cherche par rapport au prix
                             switch (priceChose[0]) {
                                 case "lvl_1":
@@ -235,6 +257,7 @@ export default function Filter({products, afterFilter}) {
                                     break;
                             }
                         } else {
+                            
                             temporary.push(productsFilteredArray[index])
                         }
                     }
@@ -278,15 +301,14 @@ export default function Filter({products, afterFilter}) {
                     }
                 }
             }      
-        }
-
-        console.log('filter', temporary);
+        } 
+        
         if (temporary.length == 0) {
             afterFilter([])
         } else {
             afterFilter(temporary);
         }
-        
+       
     }
 
     useEffect(() => {
@@ -315,12 +337,13 @@ export default function Filter({products, afterFilter}) {
     return (
         <div className="filter-component">
             <div className="filter-categories-container">
+                <h2>categories</h2>
                 <ul>
                     {
                         categoriesProduct.map((element, index) => {
                             return(
                                 <li key={index}>
-                                    <button type="button" onClick={() => filterCategories(element, null, null)}>{element}</button>
+                                    <button type="button" className={categoryChose.indexOf(element) != -1 ? "categorySelected" : null}  onClick={() => filterCategories(element, null, null)}>{element}</button>
                                 </li>
                             )
                         })  
@@ -328,12 +351,13 @@ export default function Filter({products, afterFilter}) {
                 </ul>
             </div>
             <div className="filter-brands-container">
+                <h2>brands</h2>
                 <ul>
                     {
                         brandsProduct.map((element, index) => {
                             return(
                                 <li key={index}>
-                                    <button type="button" onClick={() => filterCategories(null, element, null)}>{element}</button>
+                                    <button type="button" className={brandChose.indexOf(element) != -1 ? "categorySelected" : null} onClick={() => filterCategories(null, element, null)}>{element}</button>
                                 </li>
                             )
                         })  
@@ -344,21 +368,22 @@ export default function Filter({products, afterFilter}) {
                 <button type="button">promo</button>
             </div> */}
             <div className="filter-price-container">
+                <h2>prices</h2>
                 <ul>
                     <li>
-                        <button type="button" onClick={() => filterCategories(null, null, "lvl_1")}>0 € - 1,99 €</button>
+                        <button type="button" className={priceChose.indexOf("lvl_1") != -1 ? "categorySelected" : null} onClick={() => filterCategories(null, null, "lvl_1")}>0 € - 1,99 €</button>
                     </li>
                     <li>
-                        <button type="button" onClick={() => filterCategories(null, null, "lvl_2")}>2 € - 3,99 €</button>
+                        <button type="button" className={priceChose.indexOf("lvl_2") != -1 ? "categorySelected" : null} onClick={() => filterCategories(null, null, "lvl_2")}>2 € - 3,99 €</button>
                     </li>
                     <li>
-                        <button type="button" onClick={() => filterCategories(null, null, "lvl_3")}>4 € - 5,99 €</button>
+                        <button type="button" className={priceChose.indexOf("lvl_3") != -1 ? "categorySelected" : null} onClick={() => filterCategories(null, null, "lvl_3")}>4 € - 5,99 €</button>
                     </li>
                     <li>
-                        <button type="button" onClick={() => filterCategories(null, null, "lvl_4")}>6 € - 9,99 €</button>
+                        <button type="button" className={priceChose.indexOf("lvl_4") != -1 ? "categorySelected" : null} onClick={() => filterCategories(null, null, "lvl_4")}>6 € - 9,99 €</button>
                     </li>
                     <li>
-                        <button type="button" onClick={() => filterCategories(null, null, "lvl_5")}>+ 10 €</button>
+                        <button type="button" className={priceChose.indexOf("lvl_5") != -1 ? "categorySelected" : null} onClick={() => filterCategories(null, null, "lvl_5")}>+ 10 €</button>
                     </li>
                 </ul>
             </div>

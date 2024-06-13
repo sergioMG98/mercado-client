@@ -1,6 +1,17 @@
 .filter-component {
     height: 100%;
     width: 100%;
+    overflow-y: auto;
+}
+
+.filter-categories-container h2,
+.filter-brands-container h2,
+.filter-price-container h2{
+    background-color: dodgerblue;
+    text-transform: uppercase;
+    padding-left: 24px;
+    margin: 5px 0;
+    color: white;
 }
 
 .filter-price-container ,
@@ -55,4 +66,9 @@
     text-transform: uppercase;
     border-radius: 10px;
     border: 2px solid grey;
+}
+
+.categorySelected {
+    background-color: dodgerblue;
+    color: white;
 }

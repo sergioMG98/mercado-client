@@ -3,6 +3,8 @@ import NavbarAccount from "../../../../components/navbarAccount/NavbarAccount";
 import "./CategoriesAdmin.css";
 
 export default function CategoriesAdmin() {
+    let token = localStorage.getItem('TokenUserMercado');
+
     const [count, setCount] = useState(0);
     const [categories, setCategories] = useState()
     let formStatus = false;
@@ -33,6 +35,7 @@ export default function CategoriesAdmin() {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
                 },
                 body: JSON.stringify({
                     "category" : newCategory.toLowerCase()
@@ -41,7 +44,7 @@ export default function CategoriesAdmin() {
 
             const response = await fetch(`http://127.0.0.1:8000/api/addCategory`, options);
             const data = await response.json();
-
+            console.log("s", data);
             alert(data.message);
 
             if(data.status == true) {
@@ -64,8 +67,15 @@ export default function CategoriesAdmin() {
     // recupere les categories
     const getCategories = async() => {
         
+        let options = {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/getCategories`);
+            const response = await fetch(`http://127.0.0.1:8000/api/getCategories`, options);
             const data = await response.json();
             
             let categories = data.categories;
@@ -96,6 +106,7 @@ export default function CategoriesAdmin() {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
                 },
                 body: JSON.stringify({
                     "category" : category.toLowerCase()
@@ -119,7 +130,7 @@ export default function CategoriesAdmin() {
     }, [count])
     return (
         <div className="admin-categories">
-            <header>
+            <header className="header-categoriesAdmin">
                 <nav>
                     <NavbarAccount/>
                 </nav>

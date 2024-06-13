@@ -4,7 +4,18 @@
     box-sizing: border-box;
 }
 .admin-home header {
-    height: 150px;
+    height: 50px;
     width: 100%;
-
+}
+.admin-home section {
+    height: calc(100vh - 50px);
+    width: 100vw;
+    text-align: center;
+    align-content: center;
+}
+.admin-home section p {
+    text-transform: uppercase;
+    font-size: 40px;
+    word-spacing: 20px;
+    color: white;
 }

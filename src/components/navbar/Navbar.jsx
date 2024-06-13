@@ -81,13 +81,12 @@ export default function Navbar({chosenProduct, change}) {
         localStorage.setItem('valueListe', JSON.stringify({value: valueTemp}));
         
         // met chosenProduct a undefined
-        change(undefined)
+        change(undefined);
     }
-    
 
     // ouvre / ferme liste
     const liste = () => {
-
+        setListeState(false);
         let liste = document.querySelector('.liste-container-navbar')
 
         if (listeState == false) {
@@ -102,6 +101,7 @@ export default function Navbar({chosenProduct, change}) {
     // calcul la valeur lorsqu'on change la quantité
     const changeQuantityProduct = (operateur, element) => {
         
+        /* liste() */
         for (let index = 0; index < listeProduct.length; index++) {
             
             if (listeProduct[index].id == element.id) {
@@ -143,7 +143,7 @@ export default function Navbar({chosenProduct, change}) {
         console.log("search", search);
         navigate('/categories', { state: {search} })
     }
-
+   
     // liste de course
     if (listeProduct.length == 0 && chosenProduct != undefined) {
         
@@ -154,6 +154,7 @@ export default function Navbar({chosenProduct, change}) {
             brands: chosenProduct.brands,
             quantity: chosenProduct.quantity,
             promo_price: chosenProduct.promo_price,
+            name_picture: chosenProduct.name_picture,
             quantityProductChose: 1,
             valueProductChose: chosenProduct.promo_price != null ? chosenProduct.promo_price : chosenProduct.price
         }
@@ -172,6 +173,7 @@ export default function Navbar({chosenProduct, change}) {
                     brands: chosenProduct.brands,
                     quantity: chosenProduct.quantity,
                     promo_price: chosenProduct.promo_price,
+                    name_picture: chosenProduct.name_picture,
                     quantityProductChose: 1,
                     valueProductChose: chosenProduct.promo_price != null ? chosenProduct.promo_price : chosenProduct.price
                 }
@@ -237,7 +239,7 @@ export default function Navbar({chosenProduct, change}) {
 
                 <div className="cart-div-navbar" onClick={liste}>
                     <div className="logo-cart-container-navbar">
-                        c
+                        <img src={"/public/panier.png"} alt="shopping car" />
                     </div>
                     <div className="value-cart-container-navbar">
                         {listeValue.value != 0 ? listeValue.value.toFixed(2) + " €" : null}
@@ -249,12 +251,14 @@ export default function Navbar({chosenProduct, change}) {
                                     return(
                                         <div className="productListe-chose-navbar" key={index}>
                                             <div className="upper-list-navbar">
-                                                <div className="img-container-list-navbar"></div>
+                                                <div className="img-container-list-navbar">
+                                                    <img src={element.name_picture} alt="picture product" />
+                                                </div>
                                                 <div className="info-container-list-navbar">
-                                                    <div className="nameProduct-list-navbar"> <strong>{element.name}</strong> </div>
-                                                    <div className="brandProduct-list-navbar">{element.brands}</div>
-                                                    <div className="priceProduct-list-navbar">{element.price}</div>
-                                                    <div className="promo_priceProduct-list-navbar">{element.promo_price}</div>
+                                                    <div className="nameProduct-list-navbar">name : <strong>{element.name}</strong> </div>
+                                                    <div className="brandProduct-list-navbar">brand : {element.brands}</div>
+                                                    <div className="priceProduct-list-navbar">price : {element.price} €</div>
+                                                    <div className="promo_priceProduct-list-navbar">{ element.promo_price != null ? "element.promo_price" + element.promo_price + " €": null}</div>
                                                 </div>
                                             </div>
 

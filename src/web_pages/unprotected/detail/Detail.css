@@ -1,14 +1,17 @@
+.detail-page section {
+    height: calc(100vh - 150px);
+}
+
 .detailsParent-container-detailPage {
-    height: 100%;
+    height: calc(100vh - 150px);
     width: 100%;
-    background-color: antiquewhite;
+    background-color: #b9b9b9;
     display: flex;
 }
 
 .image-container-detailPage {
     height: 100%;
     width: 40%;
-    background-color: dodgerblue;
 }
 .image-container-detailPage img {
     width: 100%;

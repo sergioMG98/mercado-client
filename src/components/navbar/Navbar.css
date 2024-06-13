@@ -18,7 +18,7 @@
     height: 50px;
     border-top: 1px solid grey;
     border-width: 80%;
-    background-color: #FF0000;
+    background-color: rgb(3, 78, 154);
     display: flex;
 }
 .nav-upper-left {
@@ -73,7 +73,7 @@
     position: absolute;
     top: 14px;
     left: 10px;
-    color: #FF0000;
+    color: dodgerblue;
     pointer-events: none;
 } 
 
@@ -86,7 +86,7 @@
     height: 100%;
     width: 50px;
     text-transform: uppercase;
-    background-color: #FF0000;
+    background-color: dodgerblue;
     color: white;
     border: 1px solid grey;
     border-left: none;
@@ -104,7 +104,7 @@
 }
 .nav-login a {
     text-transform: uppercase;
-    color: #FF0000;
+    color: dodgerblue;
 }
 
 /* ======= lower bar ========== */
@@ -172,18 +172,23 @@
     width: 20%;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
-    background-color: seagreen;
+    /* background-color: #b1b1b1; */
+    background-color: white;
 }
 .value-cart-container-navbar {
     height: 80%;
     width: 60%;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
-    background-color: lightslategray;
+    background-color: white;
     align-content: center;
     text-align: center;
 }
-
+.logo-cart-container-navbar img {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px
+}
 /* ------- liste --------- */
 
 .liste-container-navbar {
@@ -193,7 +198,7 @@
     display: flex;
     height: calc(100vh - 150px);
     width: 500px;
-    background-color: rgb(185, 185, 185);
+    background-color: white;
     position: absolute;
     top: 50px;
     right: 0;
@@ -212,11 +217,13 @@
 .productListe-chose-navbar {
     height: 300px;
     width: 80%;
-    background-color: white;
+    background-color: dodgerblue;
     border: 1px solid black;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
 }
 .upper-list-navbar {
     height: 80%;
@@ -225,14 +232,27 @@
     flex-direction: row;
 }
 .img-container-list-navbar {
-    height: 100%;
-    width: 40%;
-
+    height: 80%;
+    width: 100%;
+    position: absolute;
 }
-.info-container-list-navbar {
+.img-container-list-navbar img {
     height: 100%;
-    width: 60%;
-    background-color: #FF0000;
+    width: 100%;
+}
+
+.info-container-list-navbar {
+    height: 30%;
+    width: 100%;
+    z-index: 4;
+    position: absolute;
+    top: 50%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    /* background-color: #FF0000; */
+}
+.info-container-list-navbar:hover {
+    background-color: #b1b1b1;
 }
 /* ------------ */
 .lower-list-navbar {
@@ -259,6 +279,7 @@
     border: 1px solid black;
     color: #FF0000;
 }
+
 .btn-downValue-list-navbar {
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
@@ -276,6 +297,7 @@
     text-align: center;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    background-color: white;
 }
 
 .valueParoduct-list-navbar {

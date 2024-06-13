@@ -4,7 +4,7 @@
     position: sticky;
     top: 0;
     left: 0;
-    background-color: dodgerblue;
+    background-color: rgb(3, 78, 154);
     z-index: 5;
 }
 /* --------- section ---------- */
@@ -20,8 +20,8 @@
     left: 0;
     height: 50px;
     width: 100%;
-    background-color: slateblue;
     z-index: 4;
+    background-color: white;
 }
 
 /* -------- */
@@ -60,7 +60,6 @@
     right: 150px;
     height: 100%;
     width: 150px;
-    background-color: aquamarine;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,7 +94,6 @@
     top: 0;
     height: 100%;
     width: 150px;
-    background-color: beige;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,8 +105,14 @@
     border-right: none;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
-    background-color: cadetblue;
+    background-color: white;
 }
+.logoListContainer-productCustomer img {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
 .value-list-productCustomer {
     height: 80%;
     width: 55%;
@@ -141,7 +145,7 @@
     gap: 20px;
 }
 /* ----- section body -------- */
-.bodySection-homeCustomer {
+.bodySection-homeCustomer-product {
     height: calc(100vh - 100px);
     width: 100vw;
     z-index: 2;
@@ -159,7 +163,6 @@
     position: relative;
     height: 50px;
     width: 100%;
-    background-color: salmon;
     display: flex;
     align-items: center;
 
