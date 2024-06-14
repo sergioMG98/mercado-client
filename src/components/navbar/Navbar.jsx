@@ -279,7 +279,6 @@ export default function Navbar({chosenProduct, change}) {
                 </div>
 
             </div>
-
         </div>
     )
 }

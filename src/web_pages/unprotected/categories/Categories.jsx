@@ -4,6 +4,7 @@ import "./Categories.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Filter from "../../../components/filter/Filter";
+import Burger from "../../../components/burger/burger/Burger";
 
 export default function Categories(params) {
 
@@ -16,6 +17,8 @@ export default function Categories(params) {
     // produit choisi
     const [productSelected, setProductSelected] = useState();
 
+    const [burgerState, setBurgerState] = useState(false); // close
+    const [filterState, setFilterState] = useState(false); // close
 
     // recupere les produits
     const getProducts = async() => {
@@ -57,14 +60,6 @@ export default function Categories(params) {
         setProducts(data.products);
 
     }
-    useEffect(() => {
-        
-        if (typeof(location.state) != "object" || location.state['search'] == undefined) {
-            getProducts();
-        } else {
-            getProductsBySearch();
-        }
-    }, [location.state])
 
     // change la valeur de productSelected via le composant navbar
     function handleState (newValue) {
@@ -76,16 +71,59 @@ export default function Categories(params) {
         setFilteredProduct([])
         setFilteredProduct(arrayFiltered);
     }
+
+    // ouvre / ferme le menu burger
+    const burgerEtat = (value) => {
+        let header = document.querySelector('.header-categoriesPage');
+
+        if (value == "open") {
+            setBurgerState(true);
+            header.classList.add('active');
+        } else {
+            setBurgerState(false);
+            header.classList.remove('active');
+        }
+        console.log("burger value", value);
+    }
+    // ouvre / ferme le filtre petit ecran
+    const filterEtat = () => {
+        let filter = document.querySelector('.filter-container-categoriesPage')
+        if (filterState == false) {
+            filter.classList.add('active');
+            setFilterState(true);
+        } else {
+            filter.classList.remove('active');
+            setFilterState(false);
+        }
+    }
     
+    useEffect(() => {
+        
+        if (typeof(location.state) != "object" || location.state['search'] == undefined) {
+            getProducts();
+        } else {
+            getProductsBySearch();
+        }
+    }, [location.state])
+
     return (
         <div className="categorie-page page-unprotected">
-            <header>
+            <header className="header-categoriesPage">
                 <nav className="navbar-container">
                     <Navbar chosenProduct={productSelected} change={handleState}/>
                 </nav>
+
+                <div className="burgerContainer-homePage">
+                    <Burger burgerEtat={burgerEtat}/>  
+                </div>
+
             </header>
 
             <section className="section-categoriesPage">
+                <div className="filter-btn" onClick={filterEtat}>
+                    filter
+                </div>
+
                 <div className="filter-container-categoriesPage">
                     <Filter products={products} afterFilter={productFiltered}/>
                 </div>

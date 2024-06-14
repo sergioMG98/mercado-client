@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../../components/navbar/Navbar";
+import Burger from "../../../components/burger/burger/Burger";
 import { useEffect, useState } from "react";
 import './Home.css';
 
 export default function Home() {
 
     const [categories, setCategories] = useState();
-
+    const [burgerState, setBurgerState] = useState(false); // close
     // recupere les categories
     const getCategories = async() => {
 
@@ -35,17 +36,37 @@ export default function Home() {
 
     }
 
+    // 
+    const burgerEtat = (value) => {
+        let header = document.querySelector('.header-homePage');
+
+        if (value == "open") {
+            setBurgerState(true);
+            header.classList.add('active');
+        } else {
+            setBurgerState(false);
+            header.classList.remove('active');
+        }
+        console.log("burger value", value);
+    }
+
     useEffect(() => {
         getCategories();
     }, [])
 
-
     return (
         <div className="home-page page-unprotected">
-            <header>
+            <header className="header-homePage">
+
+               
                 <nav className="navbar-container">
                     <Navbar/>
                 </nav>
+
+                <div className="burgerContainer-homePage">
+                    <Burger burgerEtat={burgerEtat}/>  
+                </div>
+                 
             </header>
 
             <section>

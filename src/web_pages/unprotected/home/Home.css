@@ -11,6 +11,13 @@
     flex-wrap: wrap;
     overflow: auto;
 }
+.page-unprotected header.active {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+}
+
 .home-categories-container li {
     height: 150px;
     width: 150px;
@@ -30,3 +37,28 @@
 .home-categories-container li:hover a {
     color: blue;
 } 
+
+/* -------------------------------- */
+
+.page-unprotected header.active .navbar-container {
+    display: flex;
+}
+
+/* -------------------------------- */
+.burgerContainer-homePage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+@media (max-width: 765px) {
+    .burgerContainer-homePage {
+        display: flex;
+    }
+    .navbar-container {
+        display: none;
+    }
+    .home-page section {
+        height: calc(100vh - 65px);
+    }
+}

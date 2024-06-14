@@ -1,3 +1,11 @@
+.page-unprotected header.active {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    z-index: 4;
+}
+
 .section-categoriesPage {
     width: 100vw;
     display: flex;
@@ -5,10 +13,35 @@
     height: calc(100vh - 150px);
 }
 /* ==== filtre container ======= */
+.filter-btn {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: dodgerblue;
+    border: 1px solid white;
+    text-transform: uppercase;
+    color: white;
+
+}
 .filter-container-categoriesPage {
     width: 22%;
     background-color: white;
     border-right: 2px solid dodgerblue;
+}
+.filter-container-categoriesPage.active {
+    position: absolute;
+    top: 65px;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    z-index: 3;
 }
 /* =====  ========== */
 .products-container-categoriesPage {
@@ -75,4 +108,26 @@
     width: 2px;
     background-color: grey;
 
+}
+
+@media (max-width: 765px) {
+    .page-unprotected header {
+        height: 65px;
+    }
+    .filter-container-categoriesPage {
+        display: none;
+    }
+    .products-container-categoriesPage {
+        width: 100%;
+    }
+    .product-categoryPage {
+        height: 300px;
+        width: 50%;
+    }
+    .filter-btn {
+        display: flex;
+    }
+    .section-categoriesPage {
+        height: calc(100vh - 65px);
+    }
 }
