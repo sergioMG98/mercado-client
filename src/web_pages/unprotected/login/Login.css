@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: calc(100vh - 150px);
     
     background: hsla(217, 100%, 50%, 1);
 
@@ -191,4 +192,18 @@
 
 .formRegister.active {
     display: flex;
+}
+
+/* ====================================== */
+
+.link-reset-password {
+    color: white;
+    height: 30px;
+    padding: 0 10px;
+    text-align: center;
+    align-content: center;
+    border-radius: 10px;
+}
+.link-reset-password:hover {
+    background-color: dodgerblue;
 }

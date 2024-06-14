@@ -38,7 +38,7 @@ export default function Login(params) {
     }
 
     // alterne les formulaires
-    const changeForm = async(buttonValue) => {
+    const changeForm = (buttonValue) => {
         const loginForm = document.querySelector('.formLogin');
         const registerForm = document.querySelector('.formRegister');
 
@@ -153,7 +153,9 @@ export default function Login(params) {
                     alert(data.message);
 
                     if (data.status == true) {
-                        localStorage.setItem("TokenUserMercado",data.token);
+                        localStorage.setItem('TokenUserMercado', data.token);
+
+                        navigate(data.link)                        
                     }
 
                     form.reset();
@@ -186,6 +188,38 @@ export default function Login(params) {
         
     }
 
+    //reset password
+    const resetPassword = async(e) => {
+        e.preventDefault();
+
+        const form = e.target.parentElement;
+        const formData = new FormData(form);
+        const email = formData.get('emailLogin');
+
+        if(email.match(emailPattern)) {
+            try {
+
+                let options = {
+                    method: "POST",
+                    headers : {
+                        "Content-Type" : "application/json",
+                    },
+                    body: JSON.stringify({email})
+                }
+            
+                const response = await fetch(`http://127.0.0.1:8000/api/emailResetPassword`,options);
+                const data = await response.json();
+
+                alert(data.message);
+
+            } catch (error) {
+                alert(error);
+            }
+        } else {
+            alert(`the email ${email} is invalid! \n 
+            email valid => exemple@gmail.com`)
+        }
+    }
     return (
         <div className="login-page page-unprotected">
             <header>
@@ -207,11 +241,12 @@ export default function Login(params) {
                             <input type="password" name="passwordLogin" id="passwordLogin" placeholder="exemple: azerty" required/>
                             <label htmlFor="passwordLogin">password</label>
                         </div>
-
+                        <div className="link-reset-password" onClick={(e) => resetPassword(e)}>forgot password</div>
                         <button type="submit" >log in</button>
                     </form>
                     <p onClick={() => changeForm('login')}>create an account</p>
 
+                    
                     <button type="button" className="conditions-password-login" onClick={() => conditionPasswordBtn('login')}>password conditions</button>
                     <div className="password-conditions-container-login">
                         <ul>

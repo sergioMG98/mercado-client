@@ -1,0 +1,80 @@
+.profilCustomer {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #b9b9b9;
+}
+.header-navbarContainer-profileCustomer {
+    height: 50px;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: dodgerblue;
+    z-index: 5;
+}
+.header-navbarContainer-profileCustomer nav {
+    height: 100%;
+    width: 100%;
+}
+.section-contentContainer-profileCustomer {
+    height: calc(100vh - 50px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+.form-profileCustomer {
+    height: 80%;
+    width: 60%;
+    border-radius: 16px;
+    backdrop-filter: blur(30px);
+    background-color: #00000080;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%;
+    box-sizing: border-box;
+    align-items: center;
+}
+.inputContainer-form-profileCustomer {
+    position: relative;
+    height: 40px;
+    width: 45%;
+}
+.inputContainer-form-profileCustomer input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid crimson;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: transparent;
+    color: white;
+    outline: none;
+}
+.inputContainer-form-profileCustomer label {
+    position: absolute;
+    text-transform: uppercase;
+    top: -10px;
+    left: 10px;
+    color: white;
+}
+
+/* .inputContainer-form-profileCustomer input:-webkit-autofill:focus { 
+    -webkit-box-shadow: 0 0 0px 40rem #00000080 inset;
+    -webkit-text-fill-color: white;
+} */
+.inputContainer-form-profileCustomer input:valid {
+    border-bottom: 2px solid lime;
+}
+.inputContainer-form-profileCustomer input:valid + label {
+    color: lime;
+}
+.section-contentContainer-profileCustomer button {
+    height: 40px;
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-transform: uppercase;
+}

@@ -13,14 +13,25 @@ import Categories from './web_pages/unprotected/categories/Categories';
 // ================== page protected ===========================
 import HomeAdmin from './web_pages/protected/admin/homeAdmin/HomeAdmin';
 import CategoriesAdmin from './web_pages/protected/admin/categoriesAdmin/CategoriesAdmin';
-
 import HomeCustomer from './web_pages/protected/customer/homeCustomer/HomeCustomer';
-
+import ProfileCustomer from './web_pages/protected/customer/profileCustomer/ProfileCustomer';
+import ProductAdmin from './web_pages/protected/admin/productAdmin/ProductAdmin';
+import ProductCustormer from './web_pages/protected/customer/productCustomer/ProductCustomer';
+import CardCreditCustomer from './web_pages/protected/customer/cardCreditCustomer/CardCreditCustomer';
 // ================== page error ===============================
 import ErrorPage from './error/error_pages/ErrorPage';
 
+//================= ===================
+import DetailsProduct from './components/detailsProduct/DetailsProduct';
+import ProfileAdmin from './web_pages/protected/admin/profileAdmin/ProfileAdmin';
+import ResetPassword from './web_pages/unprotected/resetPassword/ResetPassword';
+
 
 function App() {
+
+  localStorage.setItem('valueListe', JSON.stringify({value:  0}));
+  localStorage.setItem('shoppingListe', JSON.stringify([]));
+  
 
   const router = createBrowserRouter([
     {
@@ -54,12 +65,46 @@ function App() {
       path: "/categoriesAdmin",
       element: <CategoriesAdmin/>
     },
-    
+    {
+      // protected
+      path: "/productAdmin",
+      element: <ProductAdmin/>
+    },
+    {
+      // protected
+      path: "/profileAdmin",
+      element: <ProfileAdmin/>
+    },
     {
       // protected
       path: "/homecustomer",
       element: <HomeCustomer />
+    },
+    {
+      //protected
+      path: "/productCustomer",
+      element: <ProductCustormer/>
+    },
+    {
+      //protected
+      path: "/cardCustomer",
+      element: <CardCreditCustomer/>
+    },
+    {
+      path: "/profilCustomer",
+      element: <ProfileCustomer/>
+    },
+      //component
+    {
+      path: "/detailsProduct",
+      element: <DetailsProduct/>
+    },
+      //reset password
+    {
+      path: "/resetPassword",
+      element: <ResetPassword/>
     }
+
   ])
 
   return (

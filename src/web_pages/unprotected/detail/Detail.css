@@ -1,0 +1,47 @@
+.detail-page section {
+    height: calc(100vh - 150px);
+}
+
+.detailsParent-container-detailPage {
+    height: calc(100vh - 150px);
+    width: 100%;
+    background-color: #b9b9b9;
+    display: flex;
+}
+
+.image-container-detailPage {
+    height: 100%;
+    width: 40%;
+}
+.image-container-detailPage img {
+    width: 100%;
+}
+
+/* ==== details ====== */
+.detail-container-detailPage {
+    height: 100%;
+    width: 60%;
+}
+
+.name-detailPage,
+.btn-detailPage,
+.price-detailPage,
+.pricePromo-detailPage,
+.brand-detailPage {
+    height: calc(100% / 5);
+    width: 100%;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    align-content: center;
+    padding-left: 20%;
+}
+
+.btn-detailPage button {
+    height: 50px;
+    width: 200px;
+    background-color: dodgerblue;
+    text-transform: uppercase;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+}

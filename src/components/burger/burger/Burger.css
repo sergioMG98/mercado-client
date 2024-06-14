@@ -1,0 +1,30 @@
+.burger {
+    background-color: #71edfb;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+.burger.active {
+    background-color: white;
+}
+.burger span{
+    height: 4px;
+    width: 80%;
+    background-color: black;
+    transition: linear 0.5s;
+}
+.burger.active span {
+    transition: linear 0.5S;
+}
+.burger.active span:nth-child(1) {
+    transform: translate(0px, 20px) rotate(45deg);
+}
+.burger.active span:nth-child(2) {
+    background-color: transparent;
+}
+.burger.active span:nth-child(3) {
+    transform: translate(0px, -20px) rotate(-0.13turn);
+}

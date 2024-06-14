@@ -2,7 +2,14 @@
     height: 100vh;
     width: 100vw;
 }
+
+
 /* =============================== */
+.header-categoriesAdmin {
+    position: relative;
+    z-index: 4;
+}
+
 .header-section {
     position: relative;
     height: 50px;
@@ -11,124 +18,132 @@
     flex-direction: row;
     box-sizing: border-box;
     padding: 0 10px;
+    background-color: #00000045;
 }
 .header-section h1 {
-text-transform: uppercase;
-align-content: center;
-text-align: center;
-height: 100%;
-width: 200px;
-color: royalblue;
+    text-transform: uppercase;
+    align-content: center;
+    text-align: center;
+    height: 100%;
+    min-width: 200px;
+    color: royalblue;
 }
-.header-section .addCategory {
-position: absolute;
-right: 10px;
-top: 5px;
-height: 80%;
-width: 150px;
-text-transform: uppercase;
-background-color: royalblue;
-color: white;
-border: 1px solid white;
-border-radius: 16px;
+.header-section .addCategory,
+.header-section .addProduct {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    height: 80%;
+    width: 150px;
+    text-transform: uppercase;
+    background-color: royalblue;
+    color: white;
+    border: 1px solid white;
+    border-radius: 16px;
 }
+
 /* ======= new category ======== */
 .addCategory-form {
-display: none;
-height: 0;
-width: 0;
-position: absolute;
-top: 50px;
-right: 10px;
+    display: none;
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 50px;
+    right: 10px;
 }
 
 .addCategory-form.active {
-background-color: white;
-position: absolute;
-top: 50px;
-right: 10px;
-height: 200px;
-width: 300px;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
-border-radius: 16px;
-border: 2px solid royalblue;
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 16px;
+    border: 2px solid royalblue;
 }
 
+.newProductName-container,
 .newCategory-container {
-position: relative;
-height: 40px;
-width: 80%;
+    position: relative;
+    height: 40px;
+    width: 80%;
 }
+.newProductName-container input,
 .newCategory-container input {
-height: 100%;
-width: 100%;
-box-sizing: border-box;
-padding: 0 10px;
-border: 1px solid royalblue;
-outline: none;
-border-radius: 16px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+    border: 1px solid royalblue;
+    outline: none;
+    border-radius: 16px;
+    align-content: center;
 }
+.newProductName-container label,
 .newCategory-container label {
-position: absolute;
-top: -10px;
-left: 10px;
-text-transform: uppercase;
-background-color: white;
-padding: 0 10px;
-color: royalblue;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    text-transform: uppercase;
+    background-color: white;
+    padding: 0 10px;
+    color: royalblue;
 }
 .addCategory-form button {
-text-transform: uppercase;
-width: 80%;
-height: 40px;
-border-radius: 16px;
-background-color: royalblue;
-color: white;
+    text-transform: uppercase;
+    width: 80%;
+    height: 40px;
+    border-radius: 16px;
+    background-color: royalblue;
+    color: white;
 }
 /* ============ categories ============== */
 .section-categories-admin{
-display: flex;
-flex-direction: column;
-align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .section-categories-container {
-max-height: 90%;
-width: 80%;
-background-color: white;
-border-radius: 10px;
-overflow: hidden;
+    max-height: 90%;
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
 }
 .bar-namValue-container {
-height: 40px;
-width: 100%;
-background-color: #e1e2e4;
-color: royalblue;
+    height: 40px;
+    width: 100%;
+    background-color: #e1e2e4;
+    color: royalblue;
 }
 .bar-namValue-container ul {
-display: flex;
-flex-direction: row;
-height: 100%;
-width: 100%;
-}
-.bar-namValue-container ul li {
-height: 100%;
-width: calc(100% / 3);
-list-style: none;
-text-transform: uppercase;
-text-align: center;
-align-content: center;
-}
-/* ============================ */
-.categories-container-admin {
+    display: flex;
+    flex-direction: row;
     height: 100%;
     width: 100%;
 }
+.bar-namValue-container ul li {
+    height: 100%;
+    width: calc(100% / 3);
+    list-style: none;
+    text-transform: uppercase;
+    text-align: center;
+    align-content: center;
+}
+/* ============================ */
+.categories-container-admin {
+    height: calc(100% - 40px);
+    width: 100%;
+    overflow-y: auto;
+}
 
-.ccategories-container-admin ul {
+.categories-container-admin ul {
     height: 100%;
     width: 100%;
 }

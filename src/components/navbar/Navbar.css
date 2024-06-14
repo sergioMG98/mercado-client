@@ -14,10 +14,12 @@
     justify-content: flex-start;
 }
 .lowerPart {
+    position: relative;
     height: 50px;
     border-top: 1px solid grey;
     border-width: 80%;
-    background-color: #FF0000;
+    background-color: rgb(3, 78, 154);
+    display: flex;
 }
 .nav-upper-left {
     height: 100%;
@@ -71,7 +73,7 @@
     position: absolute;
     top: 14px;
     left: 10px;
-    color: #FF0000;
+    color: dodgerblue;
     pointer-events: none;
 } 
 
@@ -84,7 +86,7 @@
     height: 100%;
     width: 50px;
     text-transform: uppercase;
-    background-color: #FF0000;
+    background-color: dodgerblue;
     color: white;
     border: 1px solid grey;
     border-left: none;
@@ -102,5 +104,242 @@
 }
 .nav-login a {
     text-transform: uppercase;
+    color: dodgerblue;
+}
+
+/* ======= lower bar ========== */
+
+.categories-div-navbar {
+    height: 100%;
+    width: 200px;
+    position: relative;
+}
+.btn-container-navbar {
+    height: 50px;
+    width: 100%;
+    border-radius: 10px;
+    align-content: center;
+    text-align: center;
+}
+.btn-container-navbar button {
+    height: 80%;
+    width: 80%;
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: white;
+    background-color: dodgerblue;
+    border: 1px solid white;
+}
+/* ----- categories  ----- */
+.categories-container-navbar {
+    display: none;
+}
+
+.categories-container-navbar.active {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    border: 1px solid dodgerblue;
+    z-index: 5;
+}
+.categories-container-navbar ul {
+    width: 100%;
+}
+.categories-container-navbar ul li {
+    height: 50px;
+    width: 100%;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    align-content: center;
+    padding-left: 20%;
+}
+/* ----- cart --------- */
+
+.cart-div-navbar {
+    position: absolute;
+    height: 100%;
+    width: 200px;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-cart-container-navbar {
+    height: 80%;
+    width: 20%;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    /* background-color: #b1b1b1; */
+    background-color: white;
+}
+.value-cart-container-navbar {
+    height: 80%;
+    width: 60%;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: white;
+    align-content: center;
+    text-align: center;
+}
+.logo-cart-container-navbar img {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px
+}
+/* ------- liste --------- */
+
+.liste-container-navbar {
+    display: none;
+}
+.liste-container-navbar.active {
+    display: flex;
+    height: calc(100vh - 150px);
+    width: 500px;
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 5;
+    box-sizing: border-box;
+    padding: 40px 0;
+    overflow-y: auto;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-left: 1px solid black;
+}
+
+/* ----- produit de la liste ----- */
+
+.productListe-chose-navbar {
+    height: 300px;
+    width: 80%;
+    background-color: dodgerblue;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+.upper-list-navbar {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.img-container-list-navbar {
+    height: 80%;
+    width: 100%;
+    position: absolute;
+}
+.img-container-list-navbar img {
+    height: 100%;
+    width: 100%;
+}
+
+.info-container-list-navbar {
+    height: 30%;
+    width: 100%;
+    z-index: 4;
+    position: absolute;
+    top: 50%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    /* background-color: #FF0000; */
+}
+.info-container-list-navbar:hover {
+    background-color: #b1b1b1;
+}
+/* ------------ */
+.lower-list-navbar {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.quantityProduct-list-navbar {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.btn-downValue-list-navbar,
+.btn-upValue-list-navbar {
+    height: 80%;
+    width: 40px;
+    align-content: center;
+    text-align: center;
+    background-color: #b1b1b1;
+    border: 1px solid black;
     color: #FF0000;
+}
+
+.btn-downValue-list-navbar {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-right: none;
+}
+.btn-upValue-list-navbar {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: none;
+}
+.quantity-list-navbar {
+    height: 80%;
+    width: 80px;
+    align-content: center;
+    text-align: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: white;
+}
+
+.valueParoduct-list-navbar {
+    height: 10  0%;
+    width: 50%;
+    text-align: center;
+    align-content: center;
+}
+@media (max-width: 765px) {
+    .navbar-component {
+        height: 100%;
+        width: 100%;
+    }
+    .upperPart {
+        height: 35%;
+        flex-direction: column;
+    }
+    .nav-upper-left {
+        flex-direction: column;
+        height: 70%;
+        width: 100%;
+    }
+    .nav-logo {
+        height: 45%;
+        text-align: center;
+        align-content: center;
+    }
+    .nav-upper-right {
+        height: 30%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .categories-container-navbar.active{
+        max-height: 350px;
+    }
+    .categories-container-navbar.active ul {
+        overflow: auto;
+    }
+    .liste-container-navbar.active {
+        height: 57vh;
+        width: 100vW;
+    }
 }

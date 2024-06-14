@@ -1,0 +1,33 @@
+.home-customerPage {
+    width: 100vw;
+}
+
+.header-navbarContainer-homeCustomer {
+    height: 50px;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: dodgerblue;
+}
+.header-navbarContainer-homeCustomer nav {
+    height: 100%;
+    width: 100%;
+}
+
+.section-contentContainer-homeCustomer {
+    width: 100vw;
+}
+/* ------------- section --------------- */
+
+.bodySection-homeCustomer {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bodySection-homeCustomer p {
+    font-size: 40px;
+    color: white;
+}

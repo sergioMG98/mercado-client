@@ -1,0 +1,39 @@
+.detailsProduct-component {
+    height: 100vh;
+    width: 100vw;
+    background: hsla(217, 100%, 50%, 1);
+
+    background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    
+    background: -moz-linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    
+    background: -webkit-linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061FF", endColorstr="#60EFFF", GradientType=1 );
+    
+    display: flex;
+    flex-wrap: wrap;
+}
+.image-container-detailProduct {
+    height: 60%;
+    width: 100%;
+    align-content: center;
+    text-align: center;
+}
+
+.image-container-detailProduct img {
+    height: 100%;
+    width: 90%;
+    
+}
+
+.detail-container-detailProduct {
+    height: 40%;
+    width: 100%;
+}
+.detail-container-detailProduct div {
+    text-transform: uppercase;
+    height: 25%;
+    box-sizing: border-box;
+    padding-left: 100px;
+}

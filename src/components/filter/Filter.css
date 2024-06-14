@@ -1,0 +1,74 @@
+.filter-component {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.filter-categories-container h2,
+.filter-brands-container h2,
+.filter-price-container h2{
+    background-color: dodgerblue;
+    text-transform: uppercase;
+    padding-left: 24px;
+    margin: 5px 0;
+    color: white;
+}
+
+.filter-price-container ,
+.filter-brands-container,
+.filter-categories-container {
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    padding: 20px 0;
+}
+
+.filter-price-container ul,
+.filter-brands-container ul,
+.filter-categories-container ul {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.filter-price-container ul li,
+.filter-brands-container ul li,
+.filter-categories-container ul li {
+    height: 40px;
+    width: 80%;
+    list-style: none;
+}
+.filter-price-container ul li button,
+.filter-brands-container ul li button,
+.filter-categories-container ul li button {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid grey;
+    text-transform: uppercase;
+}
+
+.filter-promo-container {
+    height: fit-content;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.filter-promo-container button {
+    height: 40px;
+    width: 80%;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border: 2px solid grey;
+}
+
+.categorySelected {
+    background-color: dodgerblue;
+    color: white;
+}
