@@ -306,3 +306,40 @@
     text-align: center;
     align-content: center;
 }
+@media (max-width: 765px) {
+    .navbar-component {
+        height: 100%;
+        width: 100%;
+    }
+    .upperPart {
+        height: 35%;
+        flex-direction: column;
+    }
+    .nav-upper-left {
+        flex-direction: column;
+        height: 70%;
+        width: 100%;
+    }
+    .nav-logo {
+        height: 45%;
+        text-align: center;
+        align-content: center;
+    }
+    .nav-upper-right {
+        height: 30%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .categories-container-navbar.active{
+        max-height: 350px;
+    }
+    .categories-container-navbar.active ul {
+        overflow: auto;
+    }
+    .liste-container-navbar.active {
+        height: 57vh;
+        width: 100vW;
+    }
+}
